@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  '/signup', to: 'users#new'
   resources :users
   resources :account_activations, only: [:edit]
+  resources :microposts, only: %i[create destroy]
+  get '/microposts', to: 'static_pages#home'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
